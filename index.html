@@ -57,17 +57,6 @@
   .feat-row{display:flex;align-items:center;gap:10px;padding:4.5px 0}
   .feat-row span{font-size:12.5px;color:#374151;line-height:1.35}
 
-  .not-avail-row{display:flex;align-items:center;gap:10px;padding:4px 0}
-  .not-avail-row span{font-size:12px;color:#d1d5db;text-decoration:line-through;text-decoration-color:#e5e7eb}
-
-  .toggle-btn{background:rgba(0,0,0,0.02);border:1px solid rgba(0,0,0,0.06);border-radius:8px;cursor:pointer;padding:7px 12px;width:100%;display:flex;align-items:center;justify-content:space-between;margin-top:4px;transition:background .2s;-webkit-tap-highlight-color:transparent}
-  .toggle-btn:hover{background:rgba(0,0,0,0.04)}
-  .toggle-btn span{font-family:'Outfit',sans-serif;font-size:11px;color:#9ca3af;font-weight:600}
-  .toggle-btn svg{transition:transform .25s ease}
-  .toggle-btn.open svg{transform:rotate(180deg)}
-
-  .not-avail-list{padding-top:8px;animation:revealDown .2s ease}
-  .not-avail-list.hidden{display:none}
 
   .footer{text-align:center;max-width:440px;margin:44px auto 0;font-size:11.5px;color:#9ca3af;line-height:1.6;animation:slideUp .5s ease .4s both}
 
@@ -144,7 +133,6 @@ const plans=[
     description:"Get started with the basics",
     limits:[["Invoices","20"],["Accounts","20"],["Users","1"],["Contacts","50"],["Products","50"],["Templates","2"],["WhatsApp","5"]],
     included:["Basic invoice creation","Single user access","Gfybooks watermark on invoices"],
-    notIncluded:["Payment links","Analytics","Bulk invoicing (400)","CSV import","Recurring invoice","Auto reminders","Reports","API access","Team management"],
     cta:"Start Free",ctaFilled:false
   },
   {
@@ -154,7 +142,6 @@ const plans=[
     description:"For freelancers & solopreneurs",
     limits:[["Invoices","2,000"],["Accounts","1,000"],["Users","4"],["Contacts","2,000"],["Products","1,000"],["Templates","8"],["WhatsApp","1,000"]],
     included:["Payment links","Basic analytics","Bulk invoicing (400)","CSV import","Recurring invoice","No watermark branding","Email support"],
-    notIncluded:["Auto reminders","Reports","API access","Team management"],
     cta:"Get Starter",ctaFilled:false
   },
   {
@@ -164,7 +151,6 @@ const plans=[
     description:"Best value for growing teams",
     limits:[["Invoices","4,000"],["Accounts","2,000"],["Users","6"],["Contacts","4,000"],["Products","2,000"],["Templates","12"],["WhatsApp","2,000"]],
     included:["Payment links","Basic analytics","Bulk invoicing (400)","CSV import","Recurring invoice","Auto reminders (limited)","No watermark branding","Priority email support"],
-    notIncluded:["API access","Team management"],
     cta:"Get Growth",ctaFilled:true
   },
   {
@@ -174,7 +160,6 @@ const plans=[
     description:"Advanced automation & bulk tools",
     limits:[["Invoices","6,000"],["Accounts","3,000"],["Users","10"],["Contacts","5,000"],["Products","2,500"],["Templates","20"],["WhatsApp","3,000"]],
     included:["Payment links","Advanced analytics","Bulk invoicing (400)","CSV import","Recurring invoice","Auto reminders","No watermark branding","Priority support"],
-    notIncluded:["API access","Team management"],
     cta:"Get Pro",ctaFilled:false
   },
   {
@@ -183,15 +168,12 @@ const plans=[
     accent:"#059669",border:"1px solid rgba(34,197,94,0.08)",
     description:"For teams & agencies at scale",
     limits:[["Invoices","Unlimited"],["Accounts","Unlimited"],["Users","20"],["Contacts","Unlimited"],["Products","Unlimited"],["Templates","Unlimited"],["WhatsApp","6,000"]],
-    included:["Payment links","Advanced analytics","Bulk invoicing (400)","CSV import","Recurring invoice","Auto reminders","Reports","API access","Team management","No watermark branding","Dedicated support"],
-    notIncluded:[],
+    included:["Payment links","Advanced analytics","Bulk invoicing (400)","CSV import","Recurring invoice","Auto reminders","Reports","No watermark branding","Dedicated support"],
     cta:"Get Business",ctaFilled:false
   }
 ];
 
 const tick=c=>`<svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="flex-shrink:0"><rect x=".5" y=".5" width="15" height="15" rx="4" fill="${c}10" stroke="${c}30"/><path d="M4.8 8.2L6.8 10.2L11.2 5.8" stroke="${c}" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
-const cross=()=>`<svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="flex-shrink:0"><rect x=".5" y=".5" width="15" height="15" rx="4" fill="rgba(0,0,0,0.02)" stroke="rgba(0,0,0,0.06)"/><path d="M5.8 5.8L10.2 10.2M10.2 5.8L5.8 10.2" stroke="rgba(0,0,0,0.15)" stroke-width="1.3" stroke-linecap="round"/></svg>`;
-const chev=()=>`<svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M3 4.5L6 7.5L9 4.5" stroke="#9ca3af" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
 
 const g=document.getElementById('grid');
 
@@ -208,12 +190,6 @@ plans.forEach((p,i)=>{
   }).join('');
 
   const incH=p.included.map(f=>`<div class="feat-row">${tick(p.accent)}<span>${f}</span></div>`).join('');
-
-  let naH='';
-  if(p.notIncluded.length){
-    const items=p.notIncluded.map(f=>`<div class="not-avail-row">${cross()}<span>${f}</span></div>`).join('');
-    naH=`<div style="margin-top:4px"><button class="toggle-btn" onclick="tog('${id}',this)"><span>Not available in this plan (${p.notIncluded.length})</span>${chev()}</button><div class="not-avail-list hidden" id="${id}-na">${items}</div></div>`;
-  }
 
   const bb=p.ctaFilled?'border:none':`border:1.5px solid ${p.accent}40`;
   const bg=p.ctaFilled?`background:linear-gradient(135deg,${p.accent},${p.accent}cc)`:'background:rgba(0,0,0,0.02)';
@@ -241,22 +217,14 @@ plans.forEach((p,i)=>{
         <div class="section-label"><div class="section-dot" style="background:${p.accent}"></div><span style="color:#9ca3af">Limits</span></div>
         ${limH}
       </div>
-      <div style="margin-bottom:${p.notIncluded.length?'14px':'0'}">
+      <div>
         <div class="section-label"><div class="section-dot" style="background:${p.accent}"></div><span style="color:${p.accent};opacity:.7">What's included</span></div>
         ${incH}
       </div>
-      ${naH}
     </div>`;
 
   g.appendChild(c);
 });
-
-function tog(id,btn){
-  const l=document.getElementById(id+'-na');
-  const h=l.classList.contains('hidden');
-  l.classList.toggle('hidden');
-  btn.classList.toggle('open',h);
-}
 </script>
 </body>
 </html>

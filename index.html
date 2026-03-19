@@ -25,13 +25,15 @@
 
   .card{border-radius:20px;position:relative;overflow:hidden;display:flex;flex-direction:column;opacity:0;animation:slideUp .55s cubic-bezier(.23,1,.32,1) forwards;backdrop-filter:blur(20px) saturate(1.5);-webkit-backdrop-filter:blur(20px) saturate(1.5);box-shadow:0 0 0 1px rgba(255,255,255,0.6) inset,0 1px 2px rgba(0,0,0,0.03),0 8px 32px rgba(0,0,0,0.04);transition:all .4s cubic-bezier(.4,0,.2,1)}
   .card:hover{box-shadow:0 0 0 1px rgba(255,255,255,0.8) inset,0 4px 16px rgba(34,197,94,0.06),0 12px 48px rgba(0,0,0,0.06);transform:translateY(-2px);border-color:rgba(34,197,94,0.15)}
+  .card-popular:hover{transform:translateY(-8px) scale(1.02);box-shadow:0 0 0 1px rgba(255,255,255,0.8) inset,0 8px 30px rgba(34,197,94,0.15),0 20px 60px rgba(0,0,0,0.08);border-color:rgba(34,197,94,0.6)}
   .card:nth-child(1){animation-delay:0s}.card:nth-child(2){animation-delay:.07s}.card:nth-child(3){animation-delay:.14s}.card:nth-child(4){animation-delay:.21s}.card:nth-child(5){animation-delay:.28s}
 
   .card-accent-bar{height:2px}
   .card-glow{position:absolute;top:-60px;right:-60px;width:180px;height:180px;border-radius:50%;pointer-events:none}
   .card-body{padding:26px 22px 22px;position:relative;z-index:1;display:flex;flex-direction:column;flex:1}
 
-  .tag{align-self:flex-start;margin-bottom:16px;padding:4px 12px;border-radius:50px;font-size:9.5px;font-weight:700;letter-spacing:2px}
+  .tag{display:inline-block;padding:5px 14px;border-radius:50px;font-size:9.5px;font-weight:700;letter-spacing:2px}
+  .tag-bar{text-align:center;padding:10px 0 0;min-height:32px}
   .plan-name{font-size:24px;font-weight:800;color:#111827;letter-spacing:-.5px;line-height:1.1;margin-bottom:5px}
   .plan-desc{font-size:12.5px;color:#6b7280;line-height:1.4;margin-bottom:20px}
 
@@ -79,7 +81,7 @@
     .grid{grid-template-columns:1fr;gap:12px;max-width:420px}
     .card{border-radius:18px}
     .card-body{padding:22px 18px 18px}
-    .tag{font-size:9px;padding:3px 10px;margin-bottom:12px}
+    .tag{font-size:9px;padding:3px 10px}
     .plan-name{font-size:22px}
     .plan-desc{font-size:12px;margin-bottom:16px}
     .price-row{margin-bottom:18px}
@@ -94,10 +96,7 @@
     .limit-val{font-size:12.5px}
     .feat-row{padding:4px 0;gap:8px}
     .feat-row span{font-size:12px}
-    .not-avail-row{gap:8px;padding:3.5px 0}
-    .not-avail-row span{font-size:11.5px}
-    .toggle-btn{padding:6px 10px;border-radius:7px}
-    .toggle-btn span{font-size:10.5px}
+
     .footer{margin-top:32px;font-size:11px}
   }
   @media(max-width:360px){
@@ -129,7 +128,7 @@ const plans=[
   {
     name:"Free",price:"₹0",period:"/mo",tag:null,
     gradient:"rgba(255,255,255,0.75)",
-    accent:"#6b7280",border:"1px solid rgba(0,0,0,0.06)",
+    accent:"#10b981",border:"1px solid rgba(34,197,94,0.08)",
     description:"Get started with the basics",
     limits:[["Invoices","20"],["Accounts","20"],["Users","1"],["Contacts","50"],["Products","50"],["Templates","2"],["WhatsApp","5"]],
     included:["Basic invoice creation","Single user access","Gfybooks watermark on invoices"],
@@ -141,16 +140,16 @@ const plans=[
     accent:"#10b981",border:"1px solid rgba(34,197,94,0.08)",
     description:"For freelancers & solopreneurs",
     limits:[["Invoices","2,000"],["Accounts","1,000"],["Users","4"],["Contacts","2,000"],["Products","1,000"],["Templates","8"],["WhatsApp","1,000"]],
-    included:["Payment links","Basic analytics","Bulk invoicing (400)","CSV import","Recurring invoice","No watermark branding","Email support"],
+    included:["Payment links","Basic analytics","Bulk invoicing (400/Time)","CSV import","Recurring invoice","No watermark branding","Email support"],
     cta:"Get Starter",ctaFilled:false
   },
   {
     name:"Growth",price:"₹999",period:"/mo",tag:"MOST POPULAR",
     gradient:"rgba(255,255,255,0.80)",
-    accent:"#22c55e",border:"1.5px solid rgba(34,197,94,0.25)",
+    accent:"#22c55e",border:"2px solid rgba(34,197,94,0.5)",
     description:"Best value for growing teams",
     limits:[["Invoices","4,000"],["Accounts","2,000"],["Users","6"],["Contacts","4,000"],["Products","2,000"],["Templates","12"],["WhatsApp","2,000"]],
-    included:["Payment links","Basic analytics","Bulk invoicing (400)","CSV import","Recurring invoice","Auto reminders (limited)","No watermark branding","Priority email support"],
+    included:["Payment links","Basic analytics","Bulk invoicing (400/Time)","CSV import","Recurring invoice","Auto reminders (limited)","No watermark branding","Priority email support"],
     cta:"Get Growth",ctaFilled:true
   },
   {
@@ -159,7 +158,7 @@ const plans=[
     accent:"#16a34a",border:"1px solid rgba(34,197,94,0.08)",
     description:"Advanced automation & bulk tools",
     limits:[["Invoices","6,000"],["Accounts","3,000"],["Users","10"],["Contacts","5,000"],["Products","2,500"],["Templates","20"],["WhatsApp","3,000"]],
-    included:["Payment links","Advanced analytics","Bulk invoicing (400)","CSV import","Recurring invoice","Auto reminders","No watermark branding","Priority support"],
+    included:["Payment links","Advanced analytics","Bulk invoicing (400/Time)","CSV import","Recurring invoice","Auto reminders (limited)","No watermark branding","Priority email support"],
     cta:"Get Pro",ctaFilled:false
   },
   {
@@ -168,7 +167,7 @@ const plans=[
     accent:"#059669",border:"1px solid rgba(34,197,94,0.08)",
     description:"For teams & agencies at scale",
     limits:[["Invoices","Unlimited"],["Accounts","Unlimited"],["Users","20"],["Contacts","Unlimited"],["Products","Unlimited"],["Templates","Unlimited"],["WhatsApp","6,000"]],
-    included:["Payment links","Advanced analytics","Bulk invoicing (400)","CSV import","Recurring invoice","Auto reminders","Reports","No watermark branding","Dedicated support"],
+    included:["Payment links","Advanced analytics","Bulk invoicing (400/Time)","CSV import","Recurring invoice","Auto reminders","Reports","No watermark branding","Dedicated support"],
     cta:"Get Business",ctaFilled:false
   }
 ];
@@ -196,13 +195,13 @@ plans.forEach((p,i)=>{
   const bc=p.ctaFilled?'color:white':`color:${p.accent}`;
 
   const c=document.createElement('div');
-  c.className='card';c.style.background=p.gradient;c.style.border=p.border;c.id=id;
+  c.className='card'+(pop?' card-popular':'');c.style.background=p.gradient;c.style.border=p.border;c.id=id;
 
   c.innerHTML=`
     <div class="card-accent-bar" style="background:linear-gradient(90deg,transparent 10%,${p.accent}50 50%,transparent 90%)"></div>
     ${glowH}
+    <div class="tag-bar">${tagH}</div>
     <div class="card-body">
-      ${tagH}
       <div style="margin-bottom:20px">
         <div class="plan-name">${p.name}</div>
         <div class="plan-desc">${p.description}</div>

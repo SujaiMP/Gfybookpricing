@@ -3,406 +3,259 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gfybook Pricing</title>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<title>Gfybooks Pricing</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  body{min-height:100vh;background:#f7faf8;font-family:'Outfit',ui-sans-serif,system-ui,-apple-system,sans-serif;padding:52px 16px 72px;position:relative;overflow-x:hidden;-webkit-font-smoothing:antialiased;color:#111827}
+  body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;opacity:0.45;background-image:url("data:image/svg+xml,%3Csvg width='800' height='600' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3CradialGradient id='glow' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%2322c55e' stop-opacity='0.4'/%3E%3Cstop offset='100%25' stop-color='%2322c55e' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Ccircle cx='120' cy='80' r='3' fill='%2322c55e' opacity='0.5'/%3E%3Ccircle cx='250' cy='150' r='2.5' fill='%2322c55e' opacity='0.4'/%3E%3Ccircle cx='400' cy='60' r='3.5' fill='%2322c55e' opacity='0.5'/%3E%3Ccircle cx='550' cy='200' r='2' fill='%2322c55e' opacity='0.35'/%3E%3Ccircle cx='700' cy='100' r='4' fill='%2322c55e' opacity='0.5'/%3E%3Ccircle cx='650' cy='350' r='2.5' fill='%2322c55e' opacity='0.3'/%3E%3Ccircle cx='180' cy='320' r='3' fill='%2322c55e' opacity='0.4'/%3E%3Ccircle cx='350' cy='400' r='2' fill='%2322c55e' opacity='0.45'/%3E%3Ccircle cx='500' cy='450' r='3' fill='%2322c55e' opacity='0.35'/%3E%3Ccircle cx='80' cy='500' r='2.5' fill='%2322c55e' opacity='0.3'/%3E%3Ccircle cx='750' cy='500' r='3' fill='%2322c55e' opacity='0.4'/%3E%3Ccircle cx='300' cy='250' r='2' fill='%2322c55e' opacity='0.3'/%3E%3Cline x1='120' y1='80' x2='250' y2='150' stroke='%2322c55e' stroke-width='0.5' opacity='0.15'/%3E%3Cline x1='250' y1='150' x2='400' y2='60' stroke='%2322c55e' stroke-width='0.5' opacity='0.12'/%3E%3Cline x1='400' y1='60' x2='550' y2='200' stroke='%2322c55e' stroke-width='0.5' opacity='0.12'/%3E%3Cline x1='550' y1='200' x2='700' y2='100' stroke='%2322c55e' stroke-width='0.5' opacity='0.15'/%3E%3Cline x1='120' y1='80' x2='180' y2='320' stroke='%2322c55e' stroke-width='0.5' opacity='0.1'/%3E%3Cline x1='180' y1='320' x2='350' y2='400' stroke='%2322c55e' stroke-width='0.5' opacity='0.1'/%3E%3Cline x1='350' y1='400' x2='500' y2='450' stroke='%2322c55e' stroke-width='0.5' opacity='0.12'/%3E%3Cline x1='500' y1='450' x2='650' y2='350' stroke='%2322c55e' stroke-width='0.5' opacity='0.1'/%3E%3Cline x1='250' y1='150' x2='300' y2='250' stroke='%2322c55e' stroke-width='0.5' opacity='0.1'/%3E%3Cline x1='300' y1='250' x2='350' y2='400' stroke='%2322c55e' stroke-width='0.5' opacity='0.08'/%3E%3Cline x1='700' y1='100' x2='650' y2='350' stroke='%2322c55e' stroke-width='0.5' opacity='0.1'/%3E%3Cline x1='650' y1='350' x2='750' y2='500' stroke='%2322c55e' stroke-width='0.5' opacity='0.08'/%3E%3Cline x1='80' y1='500' x2='180' y2='320' stroke='%2322c55e' stroke-width='0.5' opacity='0.08'/%3E%3Ccircle cx='120' cy='80' r='12' fill='url(%23glow)'/%3E%3Ccircle cx='700' cy='100' r='14' fill='url(%23glow)'/%3E%3Ccircle cx='500' cy='450' r='10' fill='url(%23glow)'/%3E%3C/svg%3E");background-size:100% 100%;background-repeat:no-repeat;background-position:center}
+  body>*{position:relative;z-index:1}
 
-  body {
-    min-height: 100vh;
-    background: #050507;
-    font-family: 'Sora', sans-serif;
-    padding: 52px 16px 72px;
-    position: relative;
-    overflow-x: hidden;
-  }
+  @keyframes slideUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+  @keyframes revealDown{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
 
-  /* BG ambient glow */
-  body::before {
-    content: '';
-    position: absolute;
-    top: -250px; left: 50%; transform: translateX(-50%);
-    width: 900px; height: 600px;
-    background: radial-gradient(ellipse, rgba(251,191,36,0.03) 0%, transparent 65%);
-    pointer-events: none;
-  }
+  .header{text-align:center;max-width:580px;margin:0 auto 48px;animation:slideUp .5s ease both}
+  .header-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;border-radius:100px;margin-bottom:24px;background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.15)}
+  .header-badge span{font-size:12px;font-weight:700;color:#16a34a;letter-spacing:.5px}
+  .header h1{font-size:42px;font-weight:800;color:#111827;letter-spacing:-1.8px;line-height:1.1;margin-bottom:14px}
+  .header h1 em{font-style:normal;background:linear-gradient(135deg,#16a34a 0%,#22c55e 50%,#10b981 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+  .header p{font-size:15px;color:#6b7280;line-height:1.6}
 
-  @keyframes slideUp {
-    from { opacity: 0; transform: translateY(24px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  @keyframes revealDown {
-    from { opacity: 0; transform: translateY(6px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
+  .grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;max-width:1400px;margin:0 auto;align-items:start}
 
-  .header {
-    text-align: center;
-    max-width: 580px;
-    margin: 0 auto 48px;
-    animation: slideUp 0.5s ease both;
-  }
-  .header-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 6px 16px;
-    border-radius: 100px;
-    margin-bottom: 24px;
-    background: rgba(251,191,36,0.05);
-    border: 1px solid rgba(251,191,36,0.1);
-  }
-  .header-badge span {
-    font-size: 12px; font-weight: 700; color: #fbbf24; letter-spacing: 0.5px;
-  }
-  .header h1 {
-    font-size: 42px; font-weight: 800; color: #f0f4f8;
-    letter-spacing: -1.8px; line-height: 1.1; margin-bottom: 14px;
-  }
-  .header h1 em { font-style: normal; color: #fbbf24; }
-  .header p {
-    font-size: 15px; color: rgba(255,255,255,0.3); line-height: 1.6;
-  }
+  .card{border-radius:20px;position:relative;overflow:hidden;display:flex;flex-direction:column;opacity:0;animation:slideUp .55s cubic-bezier(.23,1,.32,1) forwards;backdrop-filter:blur(20px) saturate(1.5);-webkit-backdrop-filter:blur(20px) saturate(1.5);box-shadow:0 0 0 1px rgba(255,255,255,0.6) inset,0 1px 2px rgba(0,0,0,0.03),0 8px 32px rgba(0,0,0,0.04);transition:all .4s cubic-bezier(.4,0,.2,1)}
+  .card:hover{box-shadow:0 0 0 1px rgba(255,255,255,0.8) inset,0 4px 16px rgba(34,197,94,0.06),0 12px 48px rgba(0,0,0,0.06);transform:translateY(-2px);border-color:rgba(34,197,94,0.15)}
+  .card:nth-child(1){animation-delay:0s}.card:nth-child(2){animation-delay:.07s}.card:nth-child(3){animation-delay:.14s}.card:nth-child(4){animation-delay:.21s}.card:nth-child(5){animation-delay:.28s}
 
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 14px;
-    max-width: 1360px;
-    margin: 0 auto;
-    align-items: start;
-  }
+  .card-accent-bar{height:2px}
+  .card-glow{position:absolute;top:-60px;right:-60px;width:180px;height:180px;border-radius:50%;pointer-events:none}
+  .card-body{padding:26px 22px 22px;position:relative;z-index:1;display:flex;flex-direction:column;flex:1}
 
-  .card {
-    border-radius: 22px;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    opacity: 0;
-    animation: slideUp 0.55s cubic-bezier(0.23,1,0.32,1) forwards;
-  }
-  .card:nth-child(1) { animation-delay: 0s; }
-  .card:nth-child(2) { animation-delay: 0.07s; }
-  .card:nth-child(3) { animation-delay: 0.14s; }
-  .card:nth-child(4) { animation-delay: 0.21s; }
-  .card:nth-child(5) { animation-delay: 0.28s; }
+  .tag{align-self:flex-start;margin-bottom:16px;padding:4px 12px;border-radius:50px;font-size:9.5px;font-weight:700;letter-spacing:2px}
+  .plan-name{font-size:24px;font-weight:800;color:#111827;letter-spacing:-.5px;line-height:1.1;margin-bottom:5px}
+  .plan-desc{font-size:12.5px;color:#6b7280;line-height:1.4;margin-bottom:20px}
 
-  .card-accent-bar {
-    height: 2px;
-  }
-  .card-glow {
-    position: absolute; top: -60px; right: -60px; width: 180px; height: 180px;
-    border-radius: 50%; pointer-events: none;
-  }
-  .card-body {
-    padding: 26px 22px 22px;
-    position: relative; z-index: 1;
-    display: flex; flex-direction: column; flex: 1;
-  }
+  .price-row{display:flex;align-items:baseline;gap:3px;margin-bottom:22px}
+  .price-amount{font-size:44px;font-weight:800;letter-spacing:-2px;line-height:1}
+  .price-period{font-size:14px;color:#9ca3af;font-weight:500}
 
-  .tag {
-    align-self: flex-start; margin-bottom: 16px;
-    padding: 4px 12px; border-radius: 8px;
-    font-size: 9.5px; font-weight: 700; letter-spacing: 2px;
-  }
+  .cta-btn{width:100%;padding:13px 0;border-radius:50px;cursor:pointer;font-family:'Outfit',sans-serif;font-size:13.5px;font-weight:700;letter-spacing:.2px;margin-bottom:24px;transition:all .35s cubic-bezier(.4,0,.2,1);overflow:hidden}
+  .cta-btn:hover{transform:translateY(-2px);box-shadow:0 8px 25px -5px rgba(34,197,94,0.3)}
+  .cta-btn:active{transform:translateY(0)}
 
-  .plan-name {
-    font-size: 24px; font-weight: 800; color: #eef2f7;
-    letter-spacing: -0.5px; line-height: 1.1; margin-bottom: 5px;
-  }
-  .plan-desc {
-    font-size: 12.5px; color: rgba(255,255,255,0.32);
-    line-height: 1.4; margin-bottom: 20px;
-  }
+  .divider{height:1px;background:rgba(0,0,0,0.06);margin-bottom:20px}
 
-  .price-row {
-    display: flex; align-items: baseline; gap: 3px; margin-bottom: 22px;
-  }
-  .price-amount {
-    font-size: 44px; font-weight: 800; letter-spacing: -2px; line-height: 1;
-  }
-  .price-period {
-    font-size: 14px; color: rgba(255,255,255,0.25); font-weight: 500;
-  }
+  .section-label{display:flex;align-items:center;gap:6px;margin-bottom:12px}
+  .section-dot{width:3px;height:12px;border-radius:2px;opacity:.5}
+  .section-label span{font-size:10px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase}
 
-  .cta-btn {
-    width: 100%; padding: 13px 0; border-radius: 12px; cursor: pointer;
-    font-family: 'Sora', sans-serif; font-size: 13.5px; font-weight: 700;
-    letter-spacing: 0.2px; margin-bottom: 24px; transition: all 0.2s ease;
-  }
-  .cta-btn:hover { filter: brightness(1.15); transform: translateY(-1px); }
-  .cta-outline {
-    background: rgba(255,255,255,0.02); color: inherit;
-  }
-  .cta-filled {
-    border: none; color: #080808;
-  }
+  .limit-row{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid rgba(0,0,0,0.04)}
+  .limit-row:last-child{border-bottom:none}
+  .limit-key{font-size:12.5px;color:#6b7280}
+  .limit-val{font-size:13px;font-weight:700;color:#374151;font-variant-numeric:tabular-nums}
 
-  .divider {
-    height: 1px; background: rgba(255,255,255,0.05); margin-bottom: 20px;
-  }
+  .feat-row{display:flex;align-items:center;gap:10px;padding:4.5px 0}
+  .feat-row span{font-size:12.5px;color:#374151;line-height:1.35}
 
-  .section-label {
-    display: flex; align-items: center; gap: 6px; margin-bottom: 12px;
-  }
-  .section-dot {
-    width: 3px; height: 12px; border-radius: 2px; opacity: 0.5;
-  }
-  .section-label span {
-    font-size: 10px; font-weight: 700; letter-spacing: 1.8px; text-transform: uppercase;
-  }
+  .not-avail-row{display:flex;align-items:center;gap:10px;padding:4px 0}
+  .not-avail-row span{font-size:12px;color:#d1d5db;text-decoration:line-through;text-decoration-color:#e5e7eb}
 
-  .limit-row {
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 7px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.035);
-  }
-  .limit-row:last-child { border-bottom: none; }
-  .limit-key { font-size: 12.5px; color: rgba(255,255,255,0.45); }
-  .limit-val {
-    font-size: 13px; font-weight: 700; color: #d4dae4;
-    font-variant-numeric: tabular-nums;
-  }
-  .limit-val.highlight { /* set per-card via inline */ }
+  .toggle-btn{background:rgba(0,0,0,0.02);border:1px solid rgba(0,0,0,0.06);border-radius:8px;cursor:pointer;padding:7px 12px;width:100%;display:flex;align-items:center;justify-content:space-between;margin-top:4px;transition:background .2s;-webkit-tap-highlight-color:transparent}
+  .toggle-btn:hover{background:rgba(0,0,0,0.04)}
+  .toggle-btn span{font-family:'Outfit',sans-serif;font-size:11px;color:#9ca3af;font-weight:600}
+  .toggle-btn svg{transition:transform .25s ease}
+  .toggle-btn.open svg{transform:rotate(180deg)}
 
-  .feat-row {
-    display: flex; align-items: center; gap: 10px; padding: 4.5px 0;
-  }
-  .feat-row span { font-size: 12.5px; color: rgba(255,255,255,0.55); line-height: 1.35; }
+  .not-avail-list{padding-top:8px;animation:revealDown .2s ease}
+  .not-avail-list.hidden{display:none}
 
-  .not-avail-row {
-    display: flex; align-items: center; gap: 10px; padding: 4px 0;
-  }
-  .not-avail-row span {
-    font-size: 12px; color: rgba(255,255,255,0.18);
-    text-decoration: line-through; text-decoration-color: rgba(255,255,255,0.08);
-  }
+  .footer{text-align:center;max-width:440px;margin:44px auto 0;font-size:11.5px;color:#9ca3af;line-height:1.6;animation:slideUp .5s ease .4s both}
 
-  .toggle-btn {
-    background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.04);
-    border-radius: 8px; cursor: pointer; padding: 7px 12px; width: 100%;
-    display: flex; align-items: center; justify-content: space-between;
-    margin-top: 4px; transition: background 0.2s;
+  @media(max-width:1280px){.grid{grid-template-columns:repeat(3,1fr)}}
+  @media(max-width:900px){
+    body{padding:40px 14px 60px}
+    .header{margin-bottom:36px}
+    .header h1{font-size:34px;letter-spacing:-1.2px}
+    .header p{font-size:14px}
+    .grid{grid-template-columns:repeat(2,1fr);gap:12px}
+    .price-amount{font-size:38px}
   }
-  .toggle-btn:hover { background: rgba(255,255,255,0.04); }
-  .toggle-btn span {
-    font-family: 'Sora', sans-serif; font-size: 11px;
-    color: rgba(255,255,255,0.2); font-weight: 600;
+  @media(max-width:600px){
+    body{padding:32px 12px 56px}
+    .header{margin-bottom:28px}
+    .header-badge{padding:5px 14px;margin-bottom:18px}
+    .header-badge span{font-size:11px}
+    .header h1{font-size:28px;letter-spacing:-1px;margin-bottom:10px}
+    .header p{font-size:13.5px}
+    .grid{grid-template-columns:1fr;gap:12px;max-width:420px}
+    .card{border-radius:18px}
+    .card-body{padding:22px 18px 18px}
+    .tag{font-size:9px;padding:3px 10px;margin-bottom:12px}
+    .plan-name{font-size:22px}
+    .plan-desc{font-size:12px;margin-bottom:16px}
+    .price-row{margin-bottom:18px}
+    .price-amount{font-size:36px;letter-spacing:-1.5px}
+    .price-period{font-size:13px}
+    .cta-btn{padding:12px 0;border-radius:10px;font-size:13px;margin-bottom:20px}
+    .divider{margin-bottom:16px}
+    .section-label{margin-bottom:10px}
+    .section-label span{font-size:9.5px;letter-spacing:1.5px}
+    .limit-row{padding:6px 0}
+    .limit-key{font-size:12px}
+    .limit-val{font-size:12.5px}
+    .feat-row{padding:4px 0;gap:8px}
+    .feat-row span{font-size:12px}
+    .not-avail-row{gap:8px;padding:3.5px 0}
+    .not-avail-row span{font-size:11.5px}
+    .toggle-btn{padding:6px 10px;border-radius:7px}
+    .toggle-btn span{font-size:10.5px}
+    .footer{margin-top:32px;font-size:11px}
   }
-  .toggle-btn svg {
-    transition: transform 0.25s ease;
+  @media(max-width:360px){
+    body{padding:24px 8px 48px}
+    .header h1{font-size:24px}
+    .price-amount{font-size:32px}
+    .card-body{padding:18px 14px 16px}
+    .grid{max-width:100%}
   }
-  .toggle-btn.open svg { transform: rotate(180deg); }
-
-  .not-avail-list {
-    padding-top: 8px;
-    animation: revealDown 0.2s ease;
-  }
-  .not-avail-list.hidden { display: none; }
-
-  .footer {
-    text-align: center; max-width: 440px; margin: 44px auto 0;
-    font-size: 11.5px; color: rgba(255,255,255,0.15); line-height: 1.6;
-    animation: slideUp 0.5s ease 0.4s both;
-  }
-
-  /* Icons as inline SVG backgrounds */
-  .icon-tick, .icon-cross { width: 16px; height: 16px; flex-shrink: 0; }
 </style>
 </head>
 <body>
 
-<!-- Header -->
 <div class="header">
   <div class="header-badge">
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-      <rect x="2" y="2" width="12" height="12" rx="3" stroke="#fbbf24" stroke-width="1.2"/>
-      <path d="M5 8h6M8 5v6" stroke="#fbbf24" stroke-width="1.2" stroke-linecap="round"/>
-    </svg>
-    <span>GFYBOOK PRICING</span>
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="2" width="12" height="12" rx="3" stroke="#22c55e" stroke-width="1.2"/><path d="M5 8h6M8 5v6" stroke="#22c55e" stroke-width="1.2" stroke-linecap="round"/></svg>
+    <span>GFYBOOKS PRICING</span>
   </div>
   <h1>Simple plans, <em>real value</em></h1>
   <p>From free invoicing to full-scale business automation. Every feature listed, nothing hidden.</p>
 </div>
 
-<!-- Cards Grid -->
-<div class="grid" id="cards-grid"></div>
+<div class="grid" id="grid"></div>
 
-<!-- Footer -->
 <p class="footer">All prices in INR. Add-on packs available for WhatsApp messages &amp; invoices.</p>
 
 <script>
-const plans = [
+const plans=[
   {
-    name: "Free", price: "₹0", period: "/mo", tag: null,
-    gradient: "linear-gradient(145deg, #111318 0%, #0c0e14 100%)",
-    accent: "#737b8e", border: "1px solid rgba(255,255,255,0.05)",
-    description: "Get started with the basics",
-    limits: [["Invoices","15"],["Contacts","50"],["Products","50"],["Templates","2"],["WhatsApp","5"]],
-    included: ["Gfybook watermark on invoices","Basic invoice creation","Single user access"],
-    notIncluded: ["Payment links","Analytics","Bulk invoicing","CSV import","Auto reminders","API access","Team management","Scheduling","Reports"],
-    cta: "Start Free", ctaFilled: false,
+    name:"Free",price:"₹0",period:"/mo",tag:null,
+    gradient:"rgba(255,255,255,0.75)",
+    accent:"#6b7280",border:"1px solid rgba(0,0,0,0.06)",
+    description:"Get started with the basics",
+    limits:[["Invoices","20"],["Accounts","20"],["Users","1"],["Contacts","50"],["Products","50"],["Templates","2"],["WhatsApp","5"]],
+    included:["Gfybooks watermark on invoices","Basic invoice creation","Single user access"],
+    notIncluded:["Payment links","Analytics","Bulk invoicing","CSV import","Auto reminders","API access","Team management","Recurring invoice","Reports"],
+    cta:"Start Free",ctaFilled:false
   },
   {
-    name: "Starter", price: "₹499", period: "/mo", tag: null,
-    gradient: "linear-gradient(145deg, #0b1a12 0%, #091510 100%)",
-    accent: "#34d399", border: "1px solid rgba(255,255,255,0.05)",
-    description: "For freelancers & solopreneurs",
-    limits: [["Invoices","1,200"],["Contacts","2,000"],["Products","1,000"],["Templates","8"],["WhatsApp","400"]],
-    included: ["Payment links","Basic analytics","No watermark branding","Bulk invoicing (400)","CSV import","Email support"],
-    notIncluded: ["Auto reminders","Reports","API access","Team management","Scheduling"],
-    cta: "Get Starter", ctaFilled: false,
+    name:"Starter",price:"₹599",period:"/mo",tag:null,
+    gradient:"rgba(255,255,255,0.75)",
+    accent:"#10b981",border:"1px solid rgba(34,197,94,0.08)",
+    description:"For freelancers & solopreneurs",
+    limits:[["Invoices","2,000"],["Accounts","1,000"],["Users","4"],["Contacts","2,000"],["Products","1,000"],["Templates","8"],["WhatsApp","1,000"]],
+    included:["Payment links","Basic analytics","No watermark branding","Bulk invoicing (400)","CSV import","Recurring invoice","Email support"],
+    notIncluded:["Auto reminders","Reports","API access","Team management"],
+    cta:"Get Starter",ctaFilled:false
   },
   {
-    name: "Growth", price: "₹999", period: "/mo", tag: "MOST POPULAR",
-    gradient: "linear-gradient(145deg, #1c1408 0%, #171005 100%)",
-    accent: "#fbbf24", border: "1.5px solid rgba(251,191,36,0.37)",
-    description: "Best value for growing teams",
-    limits: [["Invoices","3,000"],["Contacts","4,000"],["Products","2,000"],["Templates","12"],["WhatsApp","900"]],
-    included: ["Payment links","Basic analytics","Bulk invoicing (limited)","No watermark branding","CSV import","Priority email support","Auto reminders (limited)"],
-    notIncluded: ["API access","Team management","Scheduling"],
-    cta: "Get Growth", ctaFilled: true,
+    name:"Growth",price:"₹999",period:"/mo",tag:"MOST POPULAR",
+    gradient:"rgba(255,255,255,0.80)",
+    accent:"#22c55e",border:"1.5px solid rgba(34,197,94,0.25)",
+    description:"Best value for growing teams",
+    limits:[["Invoices","4,000"],["Accounts","2,000"],["Users","6"],["Contacts","4,000"],["Products","2,000"],["Templates","12"],["WhatsApp","2,000"]],
+    included:["Payment links","Basic analytics","Bulk invoicing (400/time)","No watermark branding","CSV import","Priority email support","Recurring invoice","Auto reminders (limited)"],
+    notIncluded:["API access","Team management"],
+    cta:"Get Growth",ctaFilled:true
   },
   {
-    name: "Pro", price: "₹1,499", period: "/mo", tag: null,
-    gradient: "linear-gradient(145deg, #0b1220 0%, #080e1a 100%)",
-    accent: "#60a5fa", border: "1px solid rgba(255,255,255,0.05)",
-    description: "Advanced automation & bulk tools",
-    limits: [["Invoices","5,000"],["Contacts","5,000"],["Products","2,500"],["Templates","20"],["WhatsApp","1,500"]],
-    included: ["Payment links","Advanced analytics","Bulk invoicing","CSV import","Auto reminders","Reports","No watermark branding","Priority support"],
-    notIncluded: ["API access","Team management","Scheduling"],
-    cta: "Get Pro", ctaFilled: false,
+    name:"Pro",price:"₹1,499",period:"/mo",tag:null,
+    gradient:"rgba(255,255,255,0.75)",
+    accent:"#16a34a",border:"1px solid rgba(34,197,94,0.08)",
+    description:"Advanced automation & bulk tools",
+    limits:[["Invoices","6,000"],["Accounts","3,000"],["Users","10"],["Contacts","5,000"],["Products","2,500"],["Templates","20"],["WhatsApp","3,000"]],
+    included:["Payment links","Advanced analytics","Bulk invoicing","CSV import","Auto reminders","No watermark branding","Recurring invoice","Priority support"],
+    notIncluded:["API access","Team management"],
+    cta:"Get Pro",ctaFilled:false
   },
   {
-    name: "Business", price: "₹2,499", period: "/mo", tag: "ALL ACCESS",
-    gradient: "linear-gradient(145deg, #150b22 0%, #100820 100%)",
-    accent: "#c084fc", border: "1px solid rgba(255,255,255,0.05)",
-    description: "For teams & agencies at scale",
-    limits: [["Invoices","10,000"],["Contacts","10,000"],["Products","5,000"],["Templates","Unlimited"],["WhatsApp","2,800"]],
-    included: ["Payment links","Advanced analytics","Bulk invoicing","CSV import","Auto reminders","Reports","API access","Team management","Scheduling","No watermark branding","Dedicated support"],
-    notIncluded: [],
-    cta: "Get Business", ctaFilled: false,
-  },
+    name:"Business",price:"₹2,499",period:"/mo",tag:"ALL ACCESS",
+    gradient:"rgba(255,255,255,0.75)",
+    accent:"#059669",border:"1px solid rgba(34,197,94,0.08)",
+    description:"For teams & agencies at scale",
+    limits:[["Invoices","Unlimited"],["Accounts","Unlimited"],["Users","20"],["Contacts","Unlimited"],["Products","Unlimited"],["Templates","Unlimited"],["WhatsApp","6,000"]],
+    included:["Payment links","Advanced analytics","Bulk invoicing","CSV import","Auto reminders","Reports","API access","Team management","Recurring invoice","No watermark branding","Dedicated support"],
+    notIncluded:[],
+    cta:"Get Business",ctaFilled:false
+  }
 ];
 
-function tickSVG(color) {
-  return `<svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="flex-shrink:0">
-    <rect x="0.5" y="0.5" width="15" height="15" rx="4" fill="${color}10" stroke="${color}30"/>
-    <path d="M4.8 8.2L6.8 10.2L11.2 5.8" stroke="${color}" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-  </svg>`;
-}
+const tick=c=>`<svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="flex-shrink:0"><rect x=".5" y=".5" width="15" height="15" rx="4" fill="${c}10" stroke="${c}30"/><path d="M4.8 8.2L6.8 10.2L11.2 5.8" stroke="${c}" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+const cross=()=>`<svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="flex-shrink:0"><rect x=".5" y=".5" width="15" height="15" rx="4" fill="rgba(0,0,0,0.02)" stroke="rgba(0,0,0,0.06)"/><path d="M5.8 5.8L10.2 10.2M10.2 5.8L5.8 10.2" stroke="rgba(0,0,0,0.15)" stroke-width="1.3" stroke-linecap="round"/></svg>`;
+const chev=()=>`<svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M3 4.5L6 7.5L9 4.5" stroke="#9ca3af" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
 
-function crossSVG() {
-  return `<svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="flex-shrink:0">
-    <rect x="0.5" y="0.5" width="15" height="15" rx="4" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.06)"/>
-    <path d="M5.8 5.8L10.2 10.2M10.2 5.8L5.8 10.2" stroke="rgba(255,255,255,0.15)" stroke-width="1.3" stroke-linecap="round"/>
-  </svg>`;
-}
+const g=document.getElementById('grid');
 
-function chevronSVG() {
-  return `<svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-    <path d="M3 4.5L6 7.5L9 4.5" stroke="rgba(255,255,255,0.2)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
-  </svg>`;
-}
+plans.forEach((p,i)=>{
+  const pop=p.tag==='MOST POPULAR';
+  const id='c'+i;
 
-const grid = document.getElementById('cards-grid');
+  const tagH=p.tag?`<div class="tag" style="background:${p.accent}12;border:1px solid ${p.accent}25;color:${p.accent}">${p.tag}</div>`:'';
+  const glowH=pop?`<div class="card-glow" style="background:radial-gradient(circle,${p.accent}08 0%,transparent 70%)"></div>`:'';
 
-plans.forEach((plan, idx) => {
-  const isPop = plan.tag === 'MOST POPULAR';
-  const id = `card-${idx}`;
-
-  let tagHTML = '';
-  if (plan.tag) {
-    tagHTML = `<div class="tag" style="background:${plan.accent}12;border:1px solid ${plan.accent}25;color:${plan.accent}">${plan.tag}</div>`;
-  }
-
-  let glowHTML = '';
-  if (isPop) {
-    glowHTML = `<div class="card-glow" style="background:radial-gradient(circle,${plan.accent}08 0%,transparent 70%)"></div>`;
-  }
-
-  const limitsHTML = plan.limits.map(([k,v]) => {
-    const valColor = v === 'Unlimited' ? plan.accent : '#d4dae4';
-    return `<div class="limit-row">
-      <span class="limit-key">${k}</span>
-      <span class="limit-val" style="color:${valColor}">${v}</span>
-    </div>`;
+  const limH=p.limits.map(([k,v])=>{
+    const vc=v==='Unlimited'?p.accent:'#374151';
+    return`<div class="limit-row"><span class="limit-key">${k}</span><span class="limit-val" style="color:${vc}">${v}</span></div>`;
   }).join('');
 
-  const includedHTML = plan.included.map(f =>
-    `<div class="feat-row">${tickSVG(plan.accent)}<span>${f}</span></div>`
-  ).join('');
+  const incH=p.included.map(f=>`<div class="feat-row">${tick(p.accent)}<span>${f}</span></div>`).join('');
 
-  let notIncludedHTML = '';
-  if (plan.notIncluded.length > 0) {
-    const items = plan.notIncluded.map(f =>
-      `<div class="not-avail-row">${crossSVG()}<span>${f}</span></div>`
-    ).join('');
-    notIncludedHTML = `
-      <div style="margin-top:4px">
-        <button class="toggle-btn" onclick="toggleNA('${id}', this)">
-          <span>Not available in this plan (${plan.notIncluded.length})</span>
-          ${chevronSVG()}
-        </button>
-        <div class="not-avail-list hidden" id="${id}-na">${items}</div>
-      </div>`;
+  let naH='';
+  if(p.notIncluded.length){
+    const items=p.notIncluded.map(f=>`<div class="not-avail-row">${cross()}<span>${f}</span></div>`).join('');
+    naH=`<div style="margin-top:4px"><button class="toggle-btn" onclick="tog('${id}',this)"><span>Not available in this plan (${p.notIncluded.length})</span>${chev()}</button><div class="not-avail-list hidden" id="${id}-na">${items}</div></div>`;
   }
 
-  const btnBorder = plan.ctaFilled ? 'border:none' : `border:1.5px solid ${plan.accent}40`;
-  const btnBg = plan.ctaFilled ? `background:linear-gradient(135deg,${plan.accent},${plan.accent}cc)` : 'background:rgba(255,255,255,0.02)';
-  const btnColor = plan.ctaFilled ? 'color:#080808' : `color:${plan.accent}`;
+  const bb=p.ctaFilled?'border:none':`border:1.5px solid ${p.accent}40`;
+  const bg=p.ctaFilled?`background:linear-gradient(135deg,${p.accent},${p.accent}cc)`:'background:rgba(0,0,0,0.02)';
+  const bc=p.ctaFilled?'color:white':`color:${p.accent}`;
 
-  const card = document.createElement('div');
-  card.className = 'card';
-  card.style.background = plan.gradient;
-  card.style.border = plan.border;
-  card.id = id;
+  const c=document.createElement('div');
+  c.className='card';c.style.background=p.gradient;c.style.border=p.border;c.id=id;
 
-  card.innerHTML = `
-    <div class="card-accent-bar" style="background:linear-gradient(90deg,transparent 10%,${plan.accent}50 50%,transparent 90%)"></div>
-    ${glowHTML}
+  c.innerHTML=`
+    <div class="card-accent-bar" style="background:linear-gradient(90deg,transparent 10%,${p.accent}50 50%,transparent 90%)"></div>
+    ${glowH}
     <div class="card-body">
-      ${tagHTML}
+      ${tagH}
       <div style="margin-bottom:20px">
-        <div class="plan-name">${plan.name}</div>
-        <div class="plan-desc">${plan.description}</div>
+        <div class="plan-name">${p.name}</div>
+        <div class="plan-desc">${p.description}</div>
       </div>
       <div class="price-row">
-        <span class="price-amount" style="color:${plan.accent}">${plan.price}</span>
-        <span class="price-period">${plan.period}</span>
+        <span class="price-amount" style="color:${p.accent}">${p.price}</span>
+        <span class="price-period">${p.period}</span>
       </div>
-      <button class="cta-btn ${plan.ctaFilled ? 'cta-filled' : 'cta-outline'}" style="${btnBorder};${btnBg};${btnColor}">${plan.cta}</button>
+      <button class="cta-btn" style="${bb};${bg};${bc}">${p.cta}</button>
       <div class="divider"></div>
-
       <div style="margin-bottom:20px">
-        <div class="section-label">
-          <div class="section-dot" style="background:${plan.accent}"></div>
-          <span style="color:rgba(255,255,255,0.25)">Limits</span>
-        </div>
-        ${limitsHTML}
+        <div class="section-label"><div class="section-dot" style="background:${p.accent}"></div><span style="color:#9ca3af">Limits</span></div>
+        ${limH}
       </div>
-
-      <div style="margin-bottom:${plan.notIncluded.length > 0 ? '14px' : '0'}">
-        <div class="section-label">
-          <div class="section-dot" style="background:${plan.accent}"></div>
-          <span style="color:${plan.accent};opacity:0.6">What's included</span>
-        </div>
-        ${includedHTML}
+      <div style="margin-bottom:${p.notIncluded.length?'14px':'0'}">
+        <div class="section-label"><div class="section-dot" style="background:${p.accent}"></div><span style="color:${p.accent};opacity:.7">What's included</span></div>
+        ${incH}
       </div>
+      ${naH}
+    </div>`;
 
-      ${notIncludedHTML}
-    </div>
-  `;
-
-  grid.appendChild(card);
+  g.appendChild(c);
 });
 
-function toggleNA(cardId, btn) {
-  const list = document.getElementById(cardId + '-na');
-  const isHidden = list.classList.contains('hidden');
-  list.classList.toggle('hidden');
-  btn.classList.toggle('open', isHidden);
+function tog(id,btn){
+  const l=document.getElementById(id+'-na');
+  const h=l.classList.contains('hidden');
+  l.classList.toggle('hidden');
+  btn.classList.toggle('open',h);
 }
 </script>
 </body>
